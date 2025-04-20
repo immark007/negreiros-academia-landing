@@ -3,6 +3,7 @@ import { Hero } from "./components/Hero"
 import { About } from "./components/About"
 import { Equipment } from "./components/Equipment"
 import { Pricing } from "./components/Pricing"
+import { Questions } from "./components/Questions"
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
     <About />
     <Equipment />
     <Pricing />
+    <Questions />
     </>
   )
 }
