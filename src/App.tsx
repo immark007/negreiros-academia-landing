@@ -4,6 +4,7 @@ import { About } from "./components/About"
 import { Equipment } from "./components/Equipment"
 import { Pricing } from "./components/Pricing"
 import { Questions } from "./components/Questions"
+import { Gallery } from "./components/Gallery"
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
     <Equipment />
     <Pricing />
     <Questions />
+    <Gallery />
     </>
   )
 }
