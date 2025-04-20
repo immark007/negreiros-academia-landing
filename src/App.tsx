@@ -6,6 +6,7 @@ import { Pricing } from "./components/Pricing"
 import { Questions } from "./components/Questions"
 import { Gallery } from "./components/Gallery"
 import { Contact } from "./components/Contact"
+import { Footer } from "./components/Footer"
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
     <Questions />
     <Gallery />
     <Contact />
+    <Footer />
     </>
   )
 }
