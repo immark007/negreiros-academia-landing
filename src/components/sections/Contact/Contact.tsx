@@ -1,7 +1,7 @@
 import React from 'react';
 import { Phone, Instagram, MapPin, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
-
+import { Button } from '../../common/Button';
 interface ContactItem {
   icon: React.ReactNode;
   title: string;
@@ -97,8 +97,8 @@ export const Contact = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 relative after:content-[''] after:block after:w-16 after:h-1 after:bg-red-600 after:mx-auto after:mt-4">
-            FALE CONOSCO
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            FALE <span className="text-red-500">CONOSCO</span>
           </h2>
           <p className="text-gray-300 max-w-3xl mx-auto text-lg">
             Estamos prontos para atender você e responder a todas as suas dúvidas. Entre em contato ou venha nos visitar!
@@ -137,16 +137,14 @@ export const Contact = () => {
                 variants={itemVariants}
                 className="mt-8 md:mt-10"
               >
-                <motion.a
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  href="https://api.whatsapp.com/send/?phone=5583993444653&text=Ol%C3%A1%2C+quero+me+matricular+na+academia+mais+individualizada+da+regi%C3%A3o%21&type=phone_number&app_absent=0" 
-                  className="inline-block w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg text-center transition-colors duration-300 shadow-lg hover:shadow-red-600/30 text-lg"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Agende uma Visita
-                </motion.a>
+              <Button
+  href="https://api.whatsapp.com/send/?phone=5583993444653&text=Ol%C3%A1%2C+quero+me+matricular+na+academia+mais+individualizada+da+regi%C3%A3o%21&type=phone_number&app_absent=0"
+  variant="primary"
+  size="lg"
+  isExternal
+>
+  Agende uma Visita
+</Button>
               </motion.div>
             </motion.div>
           </motion.div>

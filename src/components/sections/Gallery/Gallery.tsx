@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 
-import img1 from '../assets/img1.jpg';
-import img2 from '../assets/img2.jpg';
-import img3 from '../assets/img3.jpg';
+import img1 from '../../../assets/gallery/img1.jpg';
+import img2 from '../../../assets/gallery/img2.jpg';
+import img3 from '../../../assets/gallery/img3.jpg';
 
 interface GalleryImage {
   src: string;
@@ -60,8 +60,8 @@ export const Gallery = () => {
     <section id="galeria" className="py-16 md:py-20 bg-neutral-800">
       <div className="container px-4 mx-auto sm:px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 relative after:content-[''] after:block after:w-16 after:h-1 after:bg-red-600 after:mx-auto after:mt-4">
-            NOSSA ESTRUTURA
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            NOSSA <span className="text-red-500">ESTRUTURA</span>
           </h2>
           <p className="text-gray-300 max-w-3xl mx-auto text-lg">
             Conheça o ambiente da Academia Negreiros através das imagens do nosso espaço e equipamentos.

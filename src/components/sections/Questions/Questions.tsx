@@ -50,8 +50,8 @@ export const Questions = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 relative after:content-[''] after:block after:w-16 after:h-1 after:bg-red-600 after:mx-auto after:mt-4">
-            PERGUNTAS FREQUENTES
+           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            PERGUNTAS <span className="text-red-500">FREQUENTES</span>
           </h2>
           <p className="text-gray-300 max-w-3xl mx-auto text-lg">
             Tire suas dúvidas sobre a Academia Negreiros e nossos serviços.

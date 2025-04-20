@@ -1,6 +1,7 @@
 import React from 'react';
 import { Dumbbell, ArrowRight, Instagram, MapPin, Phone, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Button } from '../../common/Button';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -56,17 +57,13 @@ export const Footer = () => {
             <p className="text-gray-400 text-lg mb-6 leading-relaxed">
               Onde o treinamento raiz encontra equipamentos de última geração.
             </p>
-            <motion.a
-              whileHover={hoverEffect}
-              whileTap={tapEffect}
-              href="https://api.whatsapp.com/send/?phone=5583993444653&text=Ol%C3%A1%2C+quero+me+matricular+na+academia+mais+individualizada+da+regi%C3%A3o%21&type=phone_number&app_absent=0" 
-              className="inline-flex items-center px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-colors duration-300 shadow-lg hover:shadow-red-600/30"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Matricule-se Agora
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </motion.a>
+            <Button
+  href="https://api.whatsapp.com/send/?phone=5583993444653&text=Ol%C3%A1%2C+quero+me+matricular+na+academia+mais+individualizada+da+regi%C3%A3o%21&type=phone_number&app_absent=0"
+  variant="primary"
+  isExternal
+>
+  Matricule-se Agora
+</Button>
           </motion.div>
           <motion.div variants={itemVariants} className="md:pl-8">
             <h3 className="text-xl font-bold mb-6 text-white">Links Rápidos</h3>
