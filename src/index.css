@@ -42,4 +42,25 @@
     content: '';
     @apply block w-20 h-1 bg-red-600 mt-2;
   }
+
+  @keyframes scroll {
+    0% { transform: translateY(0); opacity: 1; }
+    75% { transform: translateY(0.5rem); opacity: 0; }
+    100% { transform: translateY(0); opacity: 0; }
+  }
+  
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(1rem); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @layer utilities {
+    .animate-scroll {
+      animation: scroll 2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+    }
+  
+    .animate-fade-in {
+      animation: fade-in 1s ease-out forwards;
+    }
+  }
 }
