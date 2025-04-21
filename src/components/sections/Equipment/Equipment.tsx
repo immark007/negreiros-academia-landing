@@ -1,4 +1,3 @@
-import React from 'react';
 import { Check, Weight, Heart, Dumbbell, Clock } from 'lucide-react';
 
 type FeatureItem = {

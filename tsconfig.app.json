@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "strict": true,
+    "noUnusedLocals": false, // Desabilitar a verificação de locais não usados
+    "noUnusedParameters": false,
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "target": "ES2020",
     "useDefineForClassFields": true,

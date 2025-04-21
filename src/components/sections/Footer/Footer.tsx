@@ -1,4 +1,3 @@
-import React from 'react';
 import { Dumbbell, ArrowRight, Instagram, MapPin, Phone, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '../../common/Button';
@@ -27,16 +26,6 @@ export const Footer = () => {
         ease: "easeOut"
       }
     }
-  };
-
-  const hoverEffect = {
-    scale: 1.05,
-    transition: { duration: 0.2, ease: "easeOut" }
-  };
-
-  const tapEffect = {
-    scale: 0.98,
-    transition: { duration: 0.1 }
   };
 
   return (
