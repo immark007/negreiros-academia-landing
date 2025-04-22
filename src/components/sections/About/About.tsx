@@ -40,11 +40,11 @@ export const About = () => {
   return (
     <motion.section 
       id="sobre" 
-      className="py-16 md:py-24 bg-neutral-900 px-5 sm:px-6 lg:px-8"
+      className="py-16 md:py-24 bg-neutral-900 px-5 sm:px-6 lg:px-8 overflow-x-hidden"
       aria-labelledby="about-heading"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{ once: true, margin: "-50px 0px" }}
       variants={containerVariants}
     >
       <div className="mx-auto max-w-7xl">
@@ -99,7 +99,7 @@ export const About = () => {
             </div>
             
             <motion.div 
-              className="hidden sm:block absolute -bottom-6 -left-6 w-1/2 aspect-square rounded-xl overflow-hidden border-4 border-red-500 shadow-xl z-10"
+              className="hidden sm:block absolute sm:bottom-4 sm:left-4 md:-bottom-6 md:-left-6 w-[45%] md:w-1/2 aspect-square rounded-xl overflow-hidden border-4 border-red-500 shadow-xl z-10"
               initial={{ scale: 0.8, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={{ once: true }}
@@ -112,8 +112,9 @@ export const About = () => {
                 loading="lazy"
               />
             </motion.div>
+            
             <motion.div 
-              className="hidden md:block absolute -top-6 -right-6 w-24 h-24 bg-red-500/20 rounded-full"
+              className="hidden md:block absolute md:-top-6 md:-right-6 w-20 h-20 md:w-24 md:h-24 bg-red-500/20 rounded-full"
               initial={{ scale: 0 }}
               whileInView={{ scale: 1 }}
               viewport={{ once: true }}

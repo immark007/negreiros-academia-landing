@@ -48,12 +48,12 @@ export const Hero = () => {
         variants={containerVariants}
       >
         <motion.h1
-          variants={itemVariants}
-          className="text-4xl md:text-5xl lg:text-7xl font-extrabold mb-4 md:mb-6 tracking-tight leading-tight"
-        >
-          <span className="text-[var(--color-light)] text-5xl md:text-5xl lg:text-6xl">ACADEMIA</span>{' '}
-          <span className="text-[var(--color-primary)] text-5xl md:text-6xl lg:text-7xl block md:inline-block mt-2 md:mt-0">NEGREIROS</span>
-        </motion.h1>
+  variants={itemVariants}
+  className="text-4xl md:text-5xl lg:text-7xl font-extrabold mb-4 md:mb-6 tracking-tight leading-tight"
+>
+  <span className="text-[var(--color-light)] text-[3.5rem] md:text-5xl lg:text-6xl leading-[1.1]">ACADEMIA</span>{' '}
+  <span className="text-[var(--color-primary)] text-[3.2rem] md:text-6xl lg:text-7xl block md:inline-block mt-2 md:mt-0 leading-[1.1]">NEGREIROS</span>
+</motion.h1>
 
         <motion.p
           variants={itemVariants}
