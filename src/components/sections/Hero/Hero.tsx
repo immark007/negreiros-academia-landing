@@ -13,10 +13,10 @@ export const Hero = () => {
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { opacity: 0, scale: 0.95 }, 
     visible: {
-      y: 0,
       opacity: 1,
+      scale: 1,
       transition: {
         type: "spring",
         damping: 10,
@@ -27,14 +27,14 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-0">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-14 md:pt-0">
       <motion.div
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
         initial="hidden"
         animate="visible"
-        style={{ 
+        style={{
           backgroundImage: "url('https://images.pexels.com/photos/136404/pexels-photo-136404.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')",
-          filter: "brightness(0.3)"
+          filter: "brightness(0.3)",
         }}
       ></motion.div>
 
@@ -44,7 +44,7 @@ export const Hero = () => {
         className="container-custom relative z-20 text-center px-4"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: '-50px' }}
+        viewport={{ once: true, amount: 0.6 }}
         variants={containerVariants}
       >
         <motion.h1
@@ -66,13 +66,13 @@ export const Hero = () => {
           variants={itemVariants}
           className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center"
         >
-          <a 
-            href="#planos" 
+          <a
+            href="#planos"
             className="btn-primary bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] hover:scale-105 hover:shadow-lg text-[var(--color-light)] font-bold py-2 px-4 md:py-3 md:px-6 rounded-md transition duration-300 transform text-sm md:text-base"
           >
             Conheça Nossos Planos
           </a>
-          <a 
+          <a
             href="https://api.whatsapp.com/send/?phone=5583993444653&text=Ol%C3%A1%2C+quero+me+matricular+na+academia+mais+individualizada+da+regi%C3%A3o%21&type=phone_number&app_absent=0"
             className="bg-[var(--color-bg)] hover:bg-[var(--color-hover-dark)] text-[var(--color-light)] font-bold py-2 px-4 md:py-3 md:px-6 rounded-md transition duration-300 inline-block border border-[var(--color-primary)] text-sm md:text-base"
             target="_blank"
@@ -85,17 +85,16 @@ export const Hero = () => {
 
       <motion.div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 cursor-pointer"
-        initial={{ y: -10, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
+        initial={{ opacity: 0 }}
+        animate={{
+          opacity: 1,
+          y: [0, 8, 0],
+        }}
         transition={{
           delay: 1.5,
-          duration: 0.5,
-          y: {
-            repeat: Infinity,
-            repeatType: "reverse",
-            duration: 1.5,
-            ease: "easeInOut"
-          }
+          duration: 1.5,
+          repeat: Infinity,
+          ease: "easeInOut",
         }}
       >
         <svg className="w-6 h-6 text-[var(--color-light)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">

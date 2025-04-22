@@ -7,10 +7,23 @@ export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        closeMenu();
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent | TouchEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+      const target = event.target as HTMLElement;
+      const isMenuButton = target.closest('button[aria-label="Toggle menu"]');
+      
+      if (menuRef.current && !menuRef.current.contains(target) && !isMenuButton) {
         closeMenu();
       }
     };
@@ -18,14 +31,17 @@ export const Header = () => {
     if (isMenuOpen) {
       document.addEventListener('mousedown', handleClickOutside);
       document.addEventListener('touchstart', handleClickOutside);
+      document.body.style.overflow = 'hidden';
     } else {
       document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('touchstart', handleClickOutside);
+      document.body.style.overflow = 'auto';
     }
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('touchstart', handleClickOutside);
+      document.body.style.overflow = 'auto';
     };
   }, [isMenuOpen]);
 
@@ -49,8 +65,8 @@ export const Header = () => {
       opacity: 1,
       transition: {
         type: "spring",
-        stiffness: 300,  // mais "duro", entra mais rápido
-        damping: 20       // menos "elástico"
+        stiffness: 300,
+        damping: 20
       }
     }
   };
@@ -61,7 +77,7 @@ export const Header = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.2, // entrada mais rápida
+        duration: 0.2,
         ease: "easeOut"
       }
     },
@@ -69,7 +85,7 @@ export const Header = () => {
       opacity: 0,
       y: -10,
       transition: {
-        duration: 0.15, // saída também mais rápida
+        duration: 0.15,
         ease: "easeIn"
       }
     }
@@ -80,7 +96,7 @@ export const Header = () => {
       initial="hidden"
       animate="visible"
       variants={headerVariants}
-      className={`fixed top-0 left-0 right-0 z-50 py-3 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 py-2 md:py-3 transition-all duration-300 ${
         isScrolled
           ? "bg-black/80 backdrop-blur-md shadow-md"
           : "bg-transparent"
@@ -93,7 +109,7 @@ export const Header = () => {
           <span className="text-xl font-bold">NEGREIROS ACADEMIA</span>
         </a>
 
-        <nav className="hidden md:flex items-center gap-8" role="navigation">
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8" role="navigation">
           <motion.a href="#sobre" className={linkClasses} whileHover={{ scale: 1.05 }}>Sobre</motion.a>
           <motion.a href="#equipamentos" className={linkClasses} whileHover={{ scale: 1.05 }}>Equipamentos</motion.a>
           <motion.a href="#planos" className={linkClasses} whileHover={{ scale: 1.05 }}>Planos</motion.a>
@@ -120,7 +136,6 @@ export const Header = () => {
           {isMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
         </motion.button>
       </div>
-
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -130,6 +145,11 @@ export const Header = () => {
             exit="exit"
             variants={mobileMenuVariants}
             className="md:hidden bg-black bg-opacity-95 absolute top-full left-0 right-0 py-4 shadow-xl"
+            style={{
+              maxHeight: 'calc(100vh - 60px)',
+              overflowY: 'auto',
+              WebkitOverflowScrolling: 'touch'
+            }}
           >
             <nav className="container-custom flex flex-col gap-1" role="navigation" aria-label="Mobile menu">
               <motion.a href="#sobre" className={mobileLinkClasses} onClick={closeMenu} whileTap={{ scale: 0.98 }}>Sobre</motion.a>

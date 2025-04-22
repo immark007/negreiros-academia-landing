@@ -20,8 +20,8 @@ function App() {
     <About />
     <Equipment />
     <Pricing />
-    <Questions />
     <Gallery />
+    <Questions />
     <Contact />
     </main>
     <Footer />
